@@ -1,0 +1,51 @@
+ /*
+Nicholas Cook Linear Search
+Below is a basic program in which searchs an array in which has data.
+The program prompts a user to input a number to search.
+In this case, a number returned should be positive.
+If a negative number is returned integer was not found.
+Program will also returned where number was in arary.
+ */
+
+//imports
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LinearSearch
+{
+    public static void main(String[] args) //main program
+    {   Scanner input = new Scanner(System.in); //create new scanner
+        int[] data = {10, 2, 4, 10, 10, 5, 4, 3}; //Data given
+            System.out.println("Enter a positive integer to search for: ");
+        int search = input.nextInt(); //Takes users next integer
+        while (search < 0) //loops until positive entry
+        {   System.out.println("Enter a POSITIVE integer to search for: "); //input validation
+            search = input.nextInt();
+        }
+        
+        while (search != -1)
+        {   int spot = Search(data, search); //calls Search method with data and search parameters
+            if (spot == -1)
+                System.out.println("Number is not in array");
+            else
+                System.out.printf("%d was found in spot %d%n%n", search, spot + 1);
+                System.out.println("Please enter another positive integer to search for: (or -1 to quit)");
+                search = input.nextInt();
+                while (search < -1) //loops until a num equal to or greater than -1 is entered
+                {   System.out.println("Enter a POSITIVE integer to search for: (or -1 to quit)");
+                    search = input.nextInt();
+                }
+                if (search == -1)
+                {break; } //breaks from loops if -1 is entered
+        }
+        System.out.println("Thanks for searching."); //Output message to user.
+    }
+    
+	public static int Search(int data[], int search) //method in which is called from main
+	{ for (int num = 0; num < data.length; num++) //loop searches every element in data array
+	  if (data[num] == search) //if data is found returns spot in array
+	     return num;
+	     
+	   return -1;   //returns -1 if number is not found
+	}
+}
