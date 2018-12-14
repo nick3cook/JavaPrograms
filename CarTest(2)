@@ -1,0 +1,31 @@
+//Nicholas Cook Exercise 1 number 3 part 2
+public class CarTest
+{
+	public static void main(String[] args)
+	{ 
+		int speed;
+		int counter = 5;
+
+		Car vehicle1 = new Car(2015,"Lamborghini Aventador LP 750-4");
+		System.out.println("Vehicle 1 is " + vehicle1.getYearModel() + " " + vehicle1.getMake());
+		
+		System.out.println("Vehicle 1's speed is currently " + vehicle1.getSpeed() + " mph.\n");
+		//accelerate 5 times
+		System.out.println("Testing Vehicle's Acceleration Ability");
+		for (int i = 0; i <= counter; i++) 
+		{	System.out.printf("You tap the gas quickly accelerating. ");
+			vehicle1.Accelerate();
+			System.out.println("Vehicle 1 Speed is now " + vehicle1.getSpeed() + " mph. ");
+		}
+		System.out.println("\n");
+		//brake 5 times
+		System.out.println("Testing Vehicle's Brake System");
+		for (int i = 0; i <= counter; i++) 
+		{	System.out.printf("You tap the brake shortly. ");
+			vehicle1.Brake();
+			System.out.printf("Vehicle 1 Speed is now " + vehicle1.getSpeed() + " mph. \n");
+		}
+		System.out.printf("Thank you for testing your %s.", vehicle1.getMake());
+		//System.out.println("Thank you for testing your " + vehicle1.getMake() + ".");
+	}
+}
